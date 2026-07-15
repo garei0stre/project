@@ -1,0 +1,6 @@
+{
+  "name": "Portfolio - Illyass Benlahssania",
+  "description": "Portfolio professionnel interactif pour promouvoir et présenter des projets web, CRM et de numérisation d'un chef de projet digital.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

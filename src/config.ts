@@ -25,5 +25,8 @@ export const clientConfig = {
   heroTitle: "Votre Expert Chauffage & Plomberie à Tullins et Environs",
   heroDescription: "Bertocchi Energies intervient rapidement à Tullins et en Isère pour toutes vos installations de chauffage, plomberie et dépannages.",
   
-  aboutDescription: "Bertocchi Energies, situé à Tullins (38), est votre partenaire de confiance spécialisé dans les installations thermiques, la plomberie, le chauffage et les énergies renouvelables."
+  aboutDescription: "Bertocchi Energies, situé à Tullins (38), est votre partenaire de confiance spécialisé dans les installations thermiques, la plomberie, le chauffage et les énergies renouvelables.",
+
+  // Assets (Custom Logo)
+  logo: "/logo.jpg"
 };

@@ -26,7 +26,7 @@ export default function Gallery() {
     {
       title: "Chauffe-eau Électrique",
       description: "Remplacement d'un cumulus vétuste par un ballon neuf haute performance avec groupe de sécurité.",
-      img: "https://images.unsplash.com/photo-1595814436573-5f21223b2024?q=80&w=2070&auto=format&fit=crop",
+      img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop",
       category: "Chauffe-eau"
     }
   ];

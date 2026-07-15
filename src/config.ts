@@ -1,28 +1,45 @@
 export const clientConfig = {
   // General Information
-  companyName: "Plomberie Dépannage 38",
-  plumberName: "Noël Ghironi",
-  phone: "07 58 60 29 32",
-  phoneRaw: "0758602932", // No spaces, for href="tel:..."
-  email: "noelghironi3838@icloud.com",
+  companyName: "Spid 38",
+  plumberName: "Spid 38",
+  phone: "04 76 35 98 08",
+  phoneRaw: "0476359808", // No spaces, for href="tel:..."
+  email: "contact@spid38.fr",
+  address: "29 Chem. du Salamot, 38210 Tullins",
 
   // Location & Coverage Area
-  mainCity: "Grenoble",
+  mainCity: "Tullins",
   departmentName: "Isère (38)",
   departmentCode: "38",
-  areaCovered: "Isère (38), Grenoble et agglomération",
-  shortAreaCovered: "Grenoble et l'ensemble de l'Isère (38)",
-  detailedAreaText: "Déplacement rapide sur tout le bassin grenoblois.",
+  areaCovered: "Tullins (38) et l'ensemble de l'Isère",
+  shortAreaCovered: "Tullins, Grenoble et environs (38)",
+  detailedAreaText: "Déplacement rapide sur Tullins et ses environs.",
 
   // Opening Hours
-  hoursWeek: "8h00 - 19h00",
-  hoursSaturday: "9h00 - 12h00",
-  hoursEmergency: "24h/24 - 7j/7",
+  hoursWeek: "9h00 - 12h00 • 13h00 - 18h00",
+  hoursSaturday: "Fermé",
+  hoursEmergency: "Lundi au Vendredi",
 
   // Custom Descriptions / Copywriting
-  badgeText: "Artisan Plombier Isère (38)",
-  heroTitle: "Votre Expert Plomberie & Dépannage à Grenoble et Environs",
-  heroDescription: "Noël Ghironi intervient rapidement pour vos urgences, débouchages, recherche de fuites et installations sanitaires. Un travail soigné au juste prix.",
+  badgeText: "Chauffage & Plomberie - Tullins (38)",
+  heroTitle: "Votre Expert Chauffage & Plomberie à Tullins et Environs",
+  heroDescription: "Spid 38 intervient rapidement à Tullins et en Isère pour toutes vos installations de chauffage, plomberie et dépannages.",
   
-  aboutDescription: "Plomberie Dépannage 38, dirigée par Noël Ghironi, est une entreprise artisanale dédiée à la satisfaction de ses clients. Dépannage urgent, débouchage, changement de robinetterie et chauffe-eau."
+  aboutDescription: "Spid 38, situé à Tullins (38), est votre partenaire de confiance spécialisé dans les installations thermiques, la plomberie, le chauffage et les énergies.",
+
+  // Assets (Custom Logo & Photos)
+  logo: "/logo.jpg",
+  photos: [
+    "/photo1.jpg",
+    "/photo2.jpg",
+    "/photo3.jpg",
+    "/photo4.jpg",
+    "/photo5.jpg",
+    "/photo6.jpg",
+    "/photo7.jpg",
+    "/photo8.jpg",
+    "/photo9.jpg",
+    "/photo10.jpg"
+  ],
+  heroImage: "/photo9.jpg" // Using one of the client's high-quality photos for the hero banner
 };

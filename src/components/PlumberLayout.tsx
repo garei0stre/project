@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Phone, Menu, X, Droplet, Wrench, Clock, MapPin, Mail, ChevronRight } from 'lucide-react';
+import { clientConfig } from '../config';
 
 export default function PlumberLayout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,11 +24,11 @@ export default function PlumberLayout() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-center sm:text-left gap-2">
           <div className="flex items-center space-x-2">
             <Droplet className="w-4 h-4 animate-pulse" />
-            <span>Dépannage Urgent Isère (38) - Intervention Rapide</span>
+            <span>Dépannage Urgent {clientConfig.departmentName} - Intervention Rapide</span>
           </div>
-          <a href="tel:0758602932" className="flex items-center space-x-2 bg-white text-red-600 px-3 py-1 rounded-full font-bold hover:bg-gray-100 transition-colors">
+          <a href={`tel:${clientConfig.phoneRaw}`} className="flex items-center space-x-2 bg-white text-red-600 px-3 py-1 rounded-full font-bold hover:bg-gray-100 transition-colors">
             <Phone className="w-4 h-4" />
-            <span>07 58 60 29 32</span>
+            <span>{clientConfig.phone}</span>
           </a>
         </div>
       </div>
@@ -43,9 +44,16 @@ export default function PlumberLayout() {
               </div>
               <div>
                 <h1 className="font-extrabold text-xl sm:text-2xl text-gray-900 leading-tight">
-                  Plomberie Dépannage <span className="text-blue-600">38</span>
+                  {clientConfig.companyName.endsWith(clientConfig.departmentCode) ? (
+                    <>
+                      {clientConfig.companyName.slice(0, -clientConfig.departmentCode.length)}
+                      <span className="text-blue-600">{clientConfig.departmentCode}</span>
+                    </>
+                  ) : (
+                    clientConfig.companyName
+                  )}
                 </h1>
-                <p className="text-xs text-gray-500 font-medium">Noël Ghironi • Artisan Plombier</p>
+                <p className="text-xs text-gray-500 font-medium">{clientConfig.plumberName} • Artisan Plombier</p>
               </div>
             </Link>
 
@@ -121,10 +129,10 @@ export default function PlumberLayout() {
                 <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white">
                   <Wrench className="w-6 h-6" />
                 </div>
-                <h2 className="font-extrabold text-xl">Plomberie Dépannage 38</h2>
+                <h2 className="font-extrabold text-xl">{clientConfig.companyName}</h2>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Artisan plombier de confiance en Isère. Dépannage urgent, installation sanitaire, et rénovation. Devis gratuit et intervention rapide.
+                Artisan plombier de confiance en {clientConfig.departmentName}. Dépannage urgent, installation sanitaire, et rénovation. Devis gratuit et intervention rapide.
               </p>
             </div>
 
@@ -136,19 +144,19 @@ export default function PlumberLayout() {
                   <Phone className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
                   <div>
                     <span className="block font-medium">Urgences & Devis</span>
-                    <a href="tel:0758602932" className="text-white font-bold hover:text-blue-400 text-base">07 58 60 29 32</a>
+                    <a href={`tel:${clientConfig.phoneRaw}`} className="text-white font-bold hover:text-blue-400 text-base">{clientConfig.phone}</a>
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
                   <Mail className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
                   <div>
                     <span className="block font-medium">Email</span>
-                    <a href="mailto:noelghironi3838@icloud.com" className="hover:text-blue-400">noelghironi3838@icloud.com</a>
+                    <a href={`mailto:${clientConfig.email}`} className="hover:text-blue-400">{clientConfig.email}</a>
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
-                  <span>Isère (38), Grenoble et agglomération</span>
+                  <span>{clientConfig.areaCovered}</span>
                 </li>
               </ul>
             </div>
@@ -172,22 +180,22 @@ export default function PlumberLayout() {
               <ul className="space-y-3 text-sm text-gray-400">
                 <li className="flex justify-between items-center">
                   <span>Lundi - Vendredi</span>
-                  <span className="text-white font-medium">8h00 - 19h00</span>
+                  <span className="text-white font-medium">{clientConfig.hoursWeek}</span>
                 </li>
                 <li className="flex justify-between items-center">
                   <span>Samedi</span>
-                  <span className="text-white font-medium">9h00 - 12h00</span>
+                  <span className="text-white font-medium">{clientConfig.hoursSaturday}</span>
                 </li>
                 <li className="flex justify-between items-center pt-2 border-t border-gray-800">
                   <span className="text-red-400 font-bold">Urgences</span>
-                  <span className="text-red-400 font-bold">24h/24 - 7j/7</span>
+                  <span className="text-red-400 font-bold">{clientConfig.hoursEmergency}</span>
                 </li>
               </ul>
             </div>
           </div>
           
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-            <p>© {new Date().getFullYear()} Plomberie Dépannage 38 - Noël Ghironi. Tous droits réservés.</p>
+            <p>© {new Date().getFullYear()} {clientConfig.companyName} - {clientConfig.plumberName}. Tous droits réservés.</p>
             <div className="mt-4 md:mt-0 space-x-4">
               <Link to="/" className="hover:text-white">Mentions Légales</Link>
               <Link to="/" className="hover:text-white">Politique de confidentialité</Link>
@@ -198,7 +206,7 @@ export default function PlumberLayout() {
 
       {/* Floating Emergency Button (Mobile Only) */}
       <a
-        href="tel:0758602932"
+        href={`tel:${clientConfig.phoneRaw}`}
         className="md:hidden fixed bottom-6 right-6 w-14 h-14 bg-red-600 text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-red-700 transition-colors z-50 animate-bounce"
         style={{ animationDuration: '2s' }}
       >

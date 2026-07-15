@@ -1,5 +1,6 @@
 import React from 'react';
 import { Camera } from 'lucide-react';
+import { clientConfig } from '../config';
 
 export default function Gallery() {
   // Using high-quality unsplash images as placeholders for the user's real images.
@@ -40,7 +41,7 @@ export default function Gallery() {
           </div>
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Mes Réalisations</h1>
           <p className="text-lg text-gray-600">
-            Découvrez quelques-uns de mes récents chantiers en Isère. Dépannage, installation, et rénovation, chaque intervention est réalisée avec le plus grand soin.
+            Découvrez quelques-uns de mes récents chantiers en {clientConfig.departmentName.split(' ')[0]}. Dépannage, installation, et rénovation, chaque intervention est réalisée avec le plus grand soin.
           </p>
         </div>
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { clientConfig } from '../config';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -46,8 +47,8 @@ export default function Contact() {
                 <div>
                   <h3 className="text-lg font-bold text-gray-900">Téléphone (Urgences)</h3>
                   <p className="text-gray-500 mb-2">Disponible 24h/24 et 7j/7 pour les urgences.</p>
-                  <a href="tel:0758602932" className="text-2xl font-extrabold text-blue-600 hover:text-blue-700 transition-colors">
-                    07 58 60 29 32
+                  <a href={`tel:${clientConfig.phoneRaw}`} className="text-2xl font-extrabold text-blue-600 hover:text-blue-700 transition-colors">
+                    {clientConfig.phone}
                   </a>
                 </div>
               </div>
@@ -59,8 +60,8 @@ export default function Contact() {
                 <div>
                   <h3 className="text-lg font-bold text-gray-900">Email</h3>
                   <p className="text-gray-500 mb-2">Pour vos demandes de devis et questions générales.</p>
-                  <a href="mailto:noelghironi3838@icloud.com" className="text-lg font-bold text-blue-600 hover:text-blue-700 transition-colors break-all">
-                    noelghironi3838@icloud.com
+                  <a href={`mailto:${clientConfig.email}`} className="text-lg font-bold text-blue-600 hover:text-blue-700 transition-colors break-all">
+                    {clientConfig.email}
                   </a>
                 </div>
               </div>
@@ -71,8 +72,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-gray-900">Zone d'intervention</h3>
-                  <p className="text-gray-600 font-medium">Grenoble et l'ensemble de l'Isère (38)</p>
-                  <p className="text-gray-500 text-sm mt-1">Déplacement rapide sur tout le bassin grenoblois.</p>
+                  <p className="text-gray-600 font-medium">{clientConfig.shortAreaCovered}</p>
+                  <p className="text-gray-500 text-sm mt-1">{clientConfig.detailedAreaText}</p>
                 </div>
               </div>
             </div>
@@ -80,7 +81,7 @@ export default function Contact() {
             <div className="mt-12 p-6 bg-gray-50 rounded-2xl border border-gray-100">
               <h3 className="font-bold text-gray-900 mb-2">À propos</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                <strong>Plomberie Dépannage 38</strong>, dirigée par Noël Ghironi, est une entreprise artisanale dédiée à la satisfaction de ses clients. Dépannage urgent, débouchage, changement de robinetterie et chauffe-eau.
+                {clientConfig.aboutDescription}
               </p>
             </div>
           </div>

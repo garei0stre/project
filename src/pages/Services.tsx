@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Droplet, Wrench, Shield, Thermometer, Check } from 'lucide-react';
+import { clientConfig } from '../config';
 
 export default function Services() {
   const servicesList = [
@@ -38,7 +39,7 @@ export default function Services() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Mes Services de Plomberie</h1>
           <p className="text-lg text-gray-600">
-            Artisan plombier expérimenté, j'interviens sur tous types de chantiers sanitaires et thermiques en Isère (38), pour les particuliers et les professionnels.
+            Artisan plombier expérimenté, j'interviens sur tous types de chantiers sanitaires et thermiques en {clientConfig.departmentName}, pour les particuliers et les professionnels.
           </p>
         </div>
 
@@ -73,7 +74,7 @@ export default function Services() {
         <div className="mt-16 bg-blue-50 border border-blue-100 rounded-3xl p-8 lg:p-12 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Un projet spécifique ou un doute ?</h3>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            N'hésitez pas à me contacter. Je me déplace sur l'ensemble de l'agglomération grenobloise pour vous établir un devis clair, gratuit et sans engagement.
+            N'hésitez pas à me contacter. Je me déplace sur {clientConfig.detailedAreaText.toLowerCase()} pour vous établir un devis clair, gratuit et sans engagement.
           </p>
           <Link to="/contact" className="inline-flex bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all shadow-md">
             Obtenir mon devis gratuit

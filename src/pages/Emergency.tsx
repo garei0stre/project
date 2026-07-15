@@ -1,5 +1,6 @@
 import React from 'react';
 import { PhoneCall, AlertTriangle, Clock, MapPin, Search } from 'lucide-react';
+import { clientConfig } from '../config';
 
 export default function Emergency() {
   return (
@@ -12,17 +13,17 @@ export default function Emergency() {
             <AlertTriangle className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-            Urgence Plomberie 24/7 <br/>en Isère (38)
+            Urgence Plomberie 24/7 <br/>en {clientConfig.departmentName}
           </h1>
           <p className="text-xl md:text-2xl text-red-100 mb-10 font-medium max-w-2xl mx-auto">
             Fuite importante, canalisation bouchée, panne d'eau chaude ? J'interviens dans l'heure.
           </p>
           <a 
-            href="tel:0758602932" 
+            href={`tel:${clientConfig.phoneRaw}`} 
             className="inline-flex bg-white hover:bg-gray-100 text-red-600 px-10 py-5 rounded-2xl font-extrabold text-2xl items-center justify-center space-x-4 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
           >
             <PhoneCall className="w-8 h-8" />
-            <span>07 58 60 29 32</span>
+            <span>{clientConfig.phone}</span>
           </a>
         </div>
       </section>
@@ -36,7 +37,7 @@ export default function Emergency() {
                 <Clock className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Réactivité Maximum</h3>
-              <p className="text-gray-600">Je suis basé en Isère pour garantir des délais d'intervention réduits sur Grenoble et alentours.</p>
+              <p className="text-gray-600">Je suis basé dans le {clientConfig.departmentCode} pour garantir des délais d'intervention réduits sur {clientConfig.mainCity} et alentours.</p>
             </div>
             
             <div className="text-center">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PhoneCall, ShieldCheck, Clock, Droplets, PenTool as Tool, CheckCircle, ArrowRight } from 'lucide-react';
+import { clientConfig } from '../config';
 
 export default function Home() {
   return (
@@ -19,22 +20,22 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="max-w-3xl">
             <span className="inline-block py-1 px-3 rounded-full bg-blue-500/20 text-blue-300 font-bold text-sm mb-6 border border-blue-500/30">
-              Artisan Plombier Isère (38)
+              {clientConfig.badgeText}
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-              Votre Expert Plomberie & Dépannage à <span className="text-blue-500">Grenoble et Environs</span>
+              Votre Expert Plomberie & Dépannage à <span className="text-blue-500">{clientConfig.mainCity} et Environs</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed">
-              Noël Ghironi intervient rapidement pour vos urgences, débouchages, recherche de fuites et installations sanitaires. Un travail soigné au juste prix.
+              {clientConfig.heroDescription}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
-                href="tel:0758602932" 
+                href={`tel:${clientConfig.phoneRaw}`} 
                 className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-3 transition-all shadow-lg hover:shadow-red-500/25"
               >
                 <PhoneCall className="w-6 h-6" />
-                <span>Urgence 07 58 60 29 32</span>
+                <span>Urgence {clientConfig.phone}</span>
               </a>
               <Link 
                 to="/contact" 
@@ -57,7 +58,7 @@ export default function Home() {
               </div>
               <div>
                 <h3 className="font-bold text-gray-900 text-lg">Intervention Rapide</h3>
-                <p className="text-sm text-gray-500 mt-1">Dépannage dans les plus brefs délais sur le 38.</p>
+                <p className="text-sm text-gray-500 mt-1">Dépannage dans les plus brefs délais sur le {clientConfig.departmentCode}.</p>
               </div>
             </div>
             <div className="flex items-center space-x-4 p-4 rounded-2xl bg-gray-50 border border-gray-100">
@@ -145,16 +146,16 @@ export default function Home() {
             <div className="text-center lg:text-left">
               <h2 className="text-3xl font-extrabold text-white mb-4">Besoin d'un plombier rapidement ?</h2>
               <p className="text-blue-100 text-lg max-w-2xl">
-                N'attendez pas que le dégât des eaux s'aggrave. Appelez-moi directement pour une intervention en Isère.
+                N'attendez pas que le dégât des eaux s'aggrave. Appelez-moi directement pour une intervention dans le {clientConfig.departmentCode}.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
               <a 
-                href="tel:0758602932" 
+                href={`tel:${clientConfig.phoneRaw}`} 
                 className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-3 transition-shadow shadow-lg"
               >
                 <PhoneCall className="w-6 h-6" />
-                <span>07 58 60 29 32</span>
+                <span>{clientConfig.phone}</span>
               </a>
               <Link 
                 to="/contact" 

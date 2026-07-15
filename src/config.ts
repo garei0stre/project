@@ -24,5 +24,15 @@ export const clientConfig = {
   heroTitle: "Votre Expert Plomberie & Dépannage à Grenoble et Environs",
   heroDescription: "Noël Ghironi intervient rapidement pour vos urgences, débouchages, recherche de fuites et installations sanitaires. Un travail soigné au juste prix.",
   
-  aboutDescription: "Plomberie Dépannage 38, dirigée par Noël Ghironi, est une entreprise artisanale dédiée à la satisfaction de ses clients. Dépannage urgent, débouchage, changement de robinetterie et chauffe-eau."
+  aboutDescription: "Plomberie Dépannage 38, dirigée par Noël Ghironi, est une entreprise artisanale dédiée à la satisfaction de ses clients. Dépannage urgent, débouchage, changement de robinetterie et chauffe-eau.",
+
+  // Assets (Custom Logo & Photos)
+  logo: "/logo.jpg",
+  photos: [
+    "/photo1.png",
+    "/photo2.png",
+    "/photo3.png",
+    "/photo4.png"
+  ],
+  heroImage: "/photo1.png"
 };

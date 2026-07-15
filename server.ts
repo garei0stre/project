@@ -5,8 +5,8 @@ import { createServer as createViteServer } from "vite";
 import { GoogleGenAI, Type } from "@google/genai";
 import "dotenv/config";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = typeof import.meta.url === "string" ? fileURLToPath(import.meta.url) : "";
+const __dirname = typeof import.meta.url === "string" ? path.dirname(__filename) : "";
 
 // Initialize Gemini Client
 const apiKey = process.env.GEMINI_API_KEY;

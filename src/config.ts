@@ -1,28 +1,29 @@
 export const clientConfig = {
   // General Information
-  companyName: "Plomberie Dépannage 38",
-  plumberName: "Noël Ghironi",
-  phone: "07 58 60 29 32",
-  phoneRaw: "0758602932", // No spaces, for href="tel:..."
-  email: "noelghironi3838@icloud.com",
+  companyName: "Bertocchi Energies",
+  plumberName: "Bertocchi Energies",
+  phone: "06 88 45 96 19",
+  phoneRaw: "0688459619", // No spaces, for href="tel:..."
+  email: "contact@bertocchi-energies.fr",
+  address: "104 Bd Michel Perret, 38210 Tullins",
 
   // Location & Coverage Area
-  mainCity: "Grenoble",
+  mainCity: "Tullins",
   departmentName: "Isère (38)",
   departmentCode: "38",
-  areaCovered: "Isère (38), Grenoble et agglomération",
-  shortAreaCovered: "Grenoble et l'ensemble de l'Isère (38)",
-  detailedAreaText: "Déplacement rapide sur tout le bassin grenoblois.",
+  areaCovered: "Tullins (38) et l'ensemble de l'Isère",
+  shortAreaCovered: "Tullins, Grenoble et environs (38)",
+  detailedAreaText: "Déplacement rapide sur Tullins, le Voironnais et le bassin grenoblois.",
 
   // Opening Hours
-  hoursWeek: "8h00 - 19h00",
-  hoursSaturday: "9h00 - 12h00",
-  hoursEmergency: "24h/24 - 7j/7",
+  hoursWeek: "8h00 - 18h30",
+  hoursSaturday: "Fermé",
+  hoursEmergency: "Lundi au Vendredi",
 
   // Custom Descriptions / Copywriting
-  badgeText: "Artisan Plombier Isère (38)",
-  heroTitle: "Votre Expert Plomberie & Dépannage à Grenoble et Environs",
-  heroDescription: "Noël Ghironi intervient rapidement pour vos urgences, débouchages, recherche de fuites et installations sanitaires. Un travail soigné au juste prix.",
+  badgeText: "Chauffage & Plomberie - Tullins (38)",
+  heroTitle: "Votre Expert Chauffage & Plomberie à Tullins et Environs",
+  heroDescription: "Bertocchi Energies intervient rapidement à Tullins et en Isère pour toutes vos installations de chauffage, plomberie et dépannages.",
   
-  aboutDescription: "Plomberie Dépannage 38, dirigée par Noël Ghironi, est une entreprise artisanale dédiée à la satisfaction de ses clients. Dépannage urgent, débouchage, changement de robinetterie et chauffe-eau."
+  aboutDescription: "Bertocchi Energies, situé à Tullins (38), est votre partenaire de confiance spécialisé dans les installations thermiques, la plomberie, le chauffage et les énergies renouvelables."
 };

@@ -66,6 +66,18 @@ export default function Contact() {
                 </div>
               </div>
 
+              {clientConfig.address && (
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0">
+                    <MapPin className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900">Adresse</h3>
+                    <p className="text-gray-600 font-medium">{clientConfig.address}</p>
+                  </div>
+                </div>
+              )}
+
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6 text-blue-600" />

@@ -156,7 +156,10 @@ export default function PlumberLayout() {
                 </li>
                 <li className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
-                  <span>{clientConfig.areaCovered}</span>
+                  <div>
+                    {clientConfig.address && <span className="block font-medium text-white">{clientConfig.address}</span>}
+                    <span className="text-gray-400 text-xs">{clientConfig.areaCovered}</span>
+                  </div>
                 </li>
               </ul>
             </div>

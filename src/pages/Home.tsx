@@ -11,7 +11,7 @@ export default function Home() {
         <div className="absolute inset-0 overflow-hidden">
           {/* Placeholder for hero background (e.g., pipes or a modern bathroom) */}
           <img 
-            src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2070&auto=format&fit=crop" 
+            src={clientConfig.heroImage || "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2070&auto=format&fit=crop"} 
             alt="Plomberie moderne" 
             className="w-full h-full object-cover opacity-20"
           />

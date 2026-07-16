@@ -14,7 +14,7 @@ export default function Gallery() {
     {
       title: "Installation de Radiateurs",
       description: "Pose et raccordement de radiateurs à eau chaude dans le cadre d'une rénovation globale.",
-      img: "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?q=80&w=2000&auto=format&fit=crop",
+      img: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=2000&auto=format&fit=crop",
       category: "Chauffage"
     },
     {

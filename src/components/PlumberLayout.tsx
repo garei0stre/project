@@ -43,7 +43,7 @@ export default function PlumberLayout() {
                 <img
                   src={clientConfig.logo}
                   alt={clientConfig.companyName}
-                  className="w-12 h-12 rounded-lg object-contain bg-white border border-gray-200 shrink-0"
+                  className="max-h-16 w-auto max-w-[220px] object-contain shrink-0"
                 />
               ) : (
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white shrink-0">
@@ -138,7 +138,7 @@ export default function PlumberLayout() {
                   <img
                     src={clientConfig.logo}
                     alt={clientConfig.companyName}
-                    className="w-10 h-10 rounded-lg object-contain bg-white border border-gray-800 shrink-0"
+                    className="max-h-14 w-auto max-w-[180px] object-contain shrink-0"
                   />
                 ) : (
                   <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white shrink-0">

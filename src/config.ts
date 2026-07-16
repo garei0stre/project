@@ -34,5 +34,6 @@ export const clientConfig = {
     "/photo3.png",
     "/photo4.png"
   ],
-  heroImage: "/photo1.png"
+  heroImage: "/photo1.png",
+  address: undefined as string | undefined
 };

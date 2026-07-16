@@ -43,28 +43,26 @@ export default function PlumberLayout() {
                 <img
                   src={clientConfig.logo}
                   alt={clientConfig.companyName}
-                  className="max-h-16 w-auto max-w-[220px] object-contain shrink-0"
+                  className="w-12 h-12 rounded-lg object-contain bg-white border border-gray-200 shrink-0"
                 />
               ) : (
-                <>
-                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white shrink-0">
-                    <Wrench className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <h1 className="font-extrabold text-xl sm:text-2xl text-gray-900 leading-tight">
-                      {clientConfig.companyName.endsWith(clientConfig.departmentCode) ? (
-                        <>
-                          {clientConfig.companyName.slice(0, -clientConfig.departmentCode.length)}
-                          <span className="text-blue-600">{clientConfig.departmentCode}</span>
-                        </>
-                      ) : (
-                        clientConfig.companyName
-                      )}
-                    </h1>
-                    <p className="text-xs text-gray-500 font-medium">{clientConfig.plumberName} • Artisan Plombier</p>
-                  </div>
-                </>
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white shrink-0">
+                  <Wrench className="w-7 h-7" />
+                </div>
               )}
+              <div>
+                <h1 className="font-extrabold text-xl sm:text-2xl text-gray-900 leading-tight">
+                  {clientConfig.companyName.endsWith(clientConfig.departmentCode) ? (
+                    <>
+                      {clientConfig.companyName.slice(0, -clientConfig.departmentCode.length)}
+                      <span className="text-blue-600">{clientConfig.departmentCode}</span>
+                    </>
+                  ) : (
+                    clientConfig.companyName
+                  )}
+                </h1>
+                <p className="text-xs text-gray-500 font-medium">{clientConfig.plumberName} • Artisan Plombier</p>
+              </div>
             </Link>
 
             {/* Desktop Nav */}
@@ -140,16 +138,14 @@ export default function PlumberLayout() {
                   <img
                     src={clientConfig.logo}
                     alt={clientConfig.companyName}
-                    className="max-h-14 w-auto max-w-[180px] object-contain shrink-0"
+                    className="w-10 h-10 rounded-lg object-contain bg-white border border-gray-800 shrink-0"
                   />
                 ) : (
-                  <>
-                    <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white shrink-0">
-                      <Wrench className="w-6 h-6" />
-                    </div>
-                    <h2 className="font-extrabold text-xl">{clientConfig.companyName}</h2>
-                  </>
+                  <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white shrink-0">
+                    <Wrench className="w-6 h-6" />
+                  </div>
                 )}
+                <h2 className="font-extrabold text-xl">{clientConfig.companyName}</h2>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Artisan plombier de confiance en {clientConfig.departmentName}. Dépannage urgent, installation sanitaire, et rénovation. Devis gratuit et intervention rapide.

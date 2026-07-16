@@ -50,6 +50,7 @@ export default function PlumberLayout() {
                   <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white shrink-0">
                     <Wrench className="w-7 h-7" />
                   </div>
+                  )}
                   <div>
                     <h1 className="font-extrabold text-xl sm:text-2xl text-gray-900 leading-tight">
                       {clientConfig.companyName.endsWith(clientConfig.departmentCode) ? (

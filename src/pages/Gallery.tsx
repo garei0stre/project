@@ -4,7 +4,7 @@ import { clientConfig } from '../config';
 
 export default function Gallery() {
   // Using high-quality unsplash images as placeholders for the user's real images.
-  const projects = [
+  const defaultProjects = [
     {
       title: "Création de Douche à l'italienne",
       description: "Installation complète avec paroi en verre, colonne de douche et faïence effet marbre.",
@@ -30,6 +30,17 @@ export default function Gallery() {
       category: "Chauffe-eau"
     }
   ];
+
+  const hasClientPhotos = clientConfig.photos && clientConfig.photos.length > 0;
+  
+  const projects = hasClientPhotos 
+    ? clientConfig.photos.map((photo, index) => ({
+        title: `Réalisation #${index + 1}`,
+        description: `Travaux et interventions de référence de notre entreprise réalisés à ${clientConfig.mainCity} et ses alentours.`,
+        img: photo,
+        category: index % 2 === 0 ? "Plomberie" : "Chauffage"
+      }))
+    : defaultProjects;
 
   return (
     <div className="bg-slate-50 min-h-screen py-16">

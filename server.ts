@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI, Type } from "@google/genai";
 import "dotenv/config";
+import { clientConfig } from "./src/config";
 
 const __filename = typeof import.meta.url === "string" ? fileURLToPath(import.meta.url) : "";
 const __dirname = typeof import.meta.url === "string" ? path.dirname(__filename) : "";
@@ -32,7 +33,7 @@ async function startServer() {
     res.json({ status: "ok", apiConnected: !!ai });
   });
 
-  // API Route: AI Chatbot representing Illyass
+  // API Route: AI Chatbot representing Plumber
   app.post("/api/chat", async (req, res) => {
     try {
       if (!ai) {
@@ -44,43 +45,30 @@ async function startServer() {
       const { message, history } = req.body;
 
       const systemInstruction = `
-You are the AI Assistant representing Illyass BENLAHSSANIA, a professional Digital Project Manager, Business Engineer (Ingénieur d'affaires), and Full-Stack Creator.
-Your job is to answer the user's questions in a friendly, professional, and convincing manner to promote his services and websites.
+You are the AI Assistant representing the company "${clientConfig.companyName}" and its plumber "${clientConfig.plumberName}".
+Your job is to answer the user's questions in a friendly, professional, and convincing manner to promote our plumbing, heating, and emergency services.
 
-About Illyass:
-- **Profile**: Business engineer with strong expertise in project management, digital transformation, and business development. Experienced in coordinating cross-functional teams and creating high-impact digital solutions.
-- **Language**: French (Native), English (C1/Fluent). Always answer in the language the user speaks to you (prefer French by default unless prompted otherwise).
-- **Contact**: Phone: +33 6 58 39 73 67 | Email: benlahssania.elmehdi@gmail.com | LinkedIn: https://www.linkedin.com/in/illyass-benlahssania/
+About us:
+- **Company**: ${clientConfig.companyName}
+- **Plumber/Contact Person**: ${clientConfig.plumberName}
+- **Phone**: ${clientConfig.phone} (Emergency number)
+- **Email**: ${clientConfig.email}
+- **Location & Coverage Area**: ${clientConfig.areaCovered} (${clientConfig.detailedAreaText || ""})
+- **Opening Hours**: Week: ${clientConfig.hoursWeek}, Saturday: ${clientConfig.hoursSaturday}, Emergencies: ${clientConfig.hoursEmergency}
+- **Badge text**: ${clientConfig.badgeText}
+- **Services description**: ${clientConfig.heroDescription}
+- **About our company**: ${clientConfig.aboutDescription}
 
-Experiences:
-1. **Domotec** (Sept 2025 - Dec 2025) | Project Manager Numérisation:
-   - Centralization of CRM, design of advanced Excel business tools.
-   - Audited and mapped workflow/sales pipelines, identified productivity bottlenecks.
-   - Configured custom business software rules and fields.
-2. **Akkodis - Airbus Helicopters** (Sept 2023 - Sept 2025) | Project Manager Officer (PMO):
-   - Transversal project management: onboarded and led 30+ collaborators.
-   - Full subcontractor management: tracking performance KPIs, processing invoices, organizing meetings.
-   - MOA/MOE coordination: deployed cloud solutions in Romania successfully on schedule.
-3. **La Compagnie Médicale** (Sept 2022 - Aug 2023) | Commercial Sédentaire:
-   - Direct business negotiation, custom tailored solutions, CRM implementation.
-4. **Elior Services** (Aug 2021 - July 2022) | Manager QHSE:
-   - Change management, safety protocols, reduced workplace accidents from 12 to 0 in a year.
-
-Education:
-- Master Ingénieur d'Affaires (MSc) - KEDGE Business School Toulon (Ongoing, Sept 2025+)
-- Bachelor en Management - KEDGE Business School Marseille (Aug 2023)
-- BTS Métiers et Services à l'Environnement - CFA INHNI Marseille (July 2022)
-
-Key Skills:
-- Project Management & Subcontracting, Agile/PMO workflows
-- CRM tools (Salesforce, Microsoft Dynamics, custom CRM setups)
-- Business Intelligence (Power BI, advanced Excel modeling)
-- Full-Stack development interests, SaaS creation, and digital transformation.
+Key Services:
+- Urgent plumbing assistance and troubleshooting (leaks, pipe burst, water heater failure, etc.).
+- Drain unblocking (sinks, toilets, showers, etc.).
+- Installation and replacement of faucets, valves, sinks, and showers.
+- Installation and maintenance of water heaters and boilers.
 
 Tone Guidelines:
-- Professional, welcoming, and elegant.
-- Be humble but display strong technical and commercial competence.
-- Keep answers concise and structured, focusing on how Illyass can add value to their projects or business.
+- Professional, reassuring, welcoming, and clear.
+- Provide reassurance about rapid interventions and transparent pricing.
+- Keep answers concise and structured in French, focusing on how we can assist them with their plumbing, heating, or sanitary emergencies and projects.
       `;
 
       // Simple single call with previous chat history combined
@@ -123,16 +111,16 @@ Tone Guidelines:
       const { projectType, description, features, budget, timeline } = req.body;
 
       const prompt = `
-Generate a professional digital project proposal and estimation based on these inputs:
+Generate a professional plumbing work proposal and estimation based on these inputs:
 - Type of Project: ${projectType}
 - Description: ${description}
-- Desired Features: ${features}
+- Options/Details: ${features}
 - Targeted Budget: ${budget}
 - Expected Timeline: ${timeline}
 
-Act as Illyass Benlahssania, Business Engineer and Digital Project Manager. 
-Analyze the feasibility, suggest the optimal modern web architecture (e.g. React/Vite, NextJS, Node/Express, Tailwind, PostgreSQL or Firestore), 
-provide a cost estimation, and list a structured implementation roadmap divided into logical development phases.
+Act as the virtual estimator for "${clientConfig.companyName}". 
+Analyze the feasibility, suggest the optimal materials or equipment (e.g., copper, PEX, specific water heater brands, high-quality sanitary fixtures), 
+provide a cost estimation, and list a structured implementation roadmap divided into logical project phases (e.g., Phase 1: Preparation & Demolition, Phase 2: Installation, Phase 3: Finishing & Testing).
       `;
 
       const responseSchema = {
@@ -144,9 +132,9 @@ provide a cost estimation, and list a structured implementation roadmap divided 
           recommendedStack: {
             type: Type.ARRAY,
             items: { type: Type.STRING },
-            description: "List of recommended tech stacks (e.g., React, Node.js, PostgreSQL)"
+            description: "List of recommended equipment, brands, or materials (e.g., Cuivre, PER, Ballon Thermodynamique, Robinetterie Grohe)"
           },
-          executiveSummary: { type: Type.STRING, description: "Professional summary in French of the project strategy" },
+          executiveSummary: { type: Type.STRING, description: "Professional summary in French of the plumbing project strategy" },
           keyFeatures: {
             type: Type.ARRAY,
             items: {
@@ -157,15 +145,15 @@ provide a cost estimation, and list a structured implementation roadmap divided 
               },
               required: ["name", "description"]
             },
-            description: "Detailed key functionalities mapped to business value"
+            description: "Detailed key actions or installations mapped to client needs"
           },
           roadmap: {
             type: Type.ARRAY,
             items: {
               type: Type.OBJECT,
               properties: {
-                phase: { type: Type.STRING, description: "Phase title (e.g., Phase 1: UX/UI & Spécifications)" },
-                duration: { type: Type.STRING, description: "e.g., Semaines 1-2" },
+                phase: { type: Type.STRING, description: "Phase title (e.g., Phase 1: Dépose & Préparation des réseaux)" },
+                duration: { type: Type.STRING, description: "e.g., Jours 1-2" },
                 tasks: {
                   type: Type.ARRAY,
                   items: { type: Type.STRING }
@@ -175,7 +163,7 @@ provide a cost estimation, and list a structured implementation roadmap divided 
             },
             description: "Step-by-step roadmap tailored for this project"
           },
-          riskAssessment: { type: Type.STRING, description: "Potential challenges (subcontractor delivery, legacy APIs) and mitigation actions" }
+          riskAssessment: { type: Type.STRING, description: "Potential challenges (water supply cut, hidden leaks, space constraints) and mitigation actions" }
         },
         required: [
           "projectName",
@@ -195,7 +183,7 @@ provide a cost estimation, and list a structured implementation roadmap divided 
         config: {
           responseMimeType: "application/json",
           responseSchema,
-          systemInstruction: "You are an expert digital business engineer. You respond strictly in French with highly professional technical specifications.",
+          systemInstruction: "You are an expert plumber and heating engineer. You respond strictly in French with highly professional technical specifications.",
           temperature: 0.3,
         }
       });

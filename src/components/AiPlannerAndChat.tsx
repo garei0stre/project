@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Send, Bot, Sparkles, User, RefreshCw, Layers, DollarSign, Calendar, ShieldAlert, Cpu, ClipboardList, HelpCircle } from "lucide-react";
 import Markdown from "react-markdown";
 import { ChatMessage, ProjectEstimate } from "../types";
+import { clientConfig } from "../config";
 
 export default function AiPlannerAndChat() {
   const [activeTab, setActiveTab] = useState<"chat" | "estimator">("chat");
@@ -11,7 +12,7 @@ export default function AiPlannerAndChat() {
     {
       id: "welcome",
       role: "assistant",
-      content: "Bonjour ! Je suis l'assistant virtuel d'Illyass Benlahssania. Posez-moi vos questions sur mes expériences chez Airbus ou Domotec, mes compétences techniques, ou mes tarifs. Comment puis-je vous accompagner dans votre transition numérique aujourd'hui ?",
+      content: `Bonjour ! Je suis l'assistant virtuel de ${clientConfig.companyName}. Posez-moi vos questions sur nos services de plomberie, de chauffage, nos tarifs ou nos zones d'intervention. Comment puis-je vous accompagner aujourd'hui ?`,
       timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
     },
   ]);
@@ -21,21 +22,21 @@ export default function AiPlannerAndChat() {
   const chatBottomRef = useRef<HTMLDivElement>(null);
 
   // Estimator States
-  const [projectType, setProjectType] = useState("SaaS / Web App");
+  const [projectType, setProjectType] = useState("Rénovation de Salle de Bain");
   const [description, setDescription] = useState("");
   const [features, setFeatures] = useState("");
-  const [budget, setBudget] = useState("Standard (3 000€ - 8 000€)");
-  const [timeline, setTimeline] = useState("1 à 2 mois");
+  const [budget, setBudget] = useState("Standard (1 000€ - 3 000€)");
+  const [timeline, setTimeline] = useState("1 à 2 semaines");
   const [isEstimating, setIsEstimating] = useState(false);
   const [estimateResult, setEstimateResult] = useState<ProjectEstimate | null>(null);
   const [estimatorError, setEstimatorError] = useState<string | null>(null);
 
   // Suggested questions for chat
   const suggestedQuestions = [
-    "Quelles sont tes disponibilités pour un projet ?",
-    "Comment as-tu digitalisé le CRM chez Domotec ?",
-    "Quelle est ton expérience chez Airbus Helicopters ?",
-    "Quels langages de programmation maîtrises-tu ?",
+    "Quels sont vos tarifs pour un dépannage d'urgence ?",
+    "Intervenez-vous pour un débouchage de canalisation ?",
+    "Quels types de chauffe-eau installez-vous ?",
+    "Quelles sont vos horaires d'intervention ?",
   ];
 
   useEffect(() => {
@@ -132,10 +133,10 @@ export default function AiPlannerAndChat() {
         <div>
           <div className="flex items-center space-x-2">
             <Sparkles className="w-5 h-5 text-indigo-400" />
-            <h3 className="text-lg font-bold font-display text-white">Créateur IA & Diagnostic</h3>
+            <h3 className="text-lg font-bold font-display text-white">Assistant IA & Estimateur de Travaux</h3>
           </div>
           <p className="text-xs text-slate-400 mt-1">
-            Interagissez en temps réel avec le double virtuel d'Illyass ou estimez instantanément le budget de votre projet.
+            Interagissez en temps réel avec l'assistant virtuel de {clientConfig.companyName} ou estimez instantanément le budget de vos travaux.
           </p>
         </div>
 
@@ -150,7 +151,7 @@ export default function AiPlannerAndChat() {
             }`}
           >
             <Bot className="w-3.5 h-3.5" />
-            <span>Double Virtuel IA</span>
+            <span>Assistant Plombier IA</span>
           </button>
           <button
             onClick={() => setActiveTab("estimator")}
@@ -161,7 +162,7 @@ export default function AiPlannerAndChat() {
             }`}
           >
             <Cpu className="w-3.5 h-3.5" />
-            <span>Planificateur & Devis IA</span>
+            <span>Estimateur de Travaux IA</span>
           </button>
         </div>
       </div>
@@ -252,7 +253,7 @@ export default function AiPlannerAndChat() {
             <div className="flex items-center space-x-2 pt-2 border-t border-slate-800">
               <input
                 type="text"
-                placeholder="Posez votre question à l'IA d'Illyass..."
+                placeholder={`Posez votre question à l'IA de ${clientConfig.companyName}...`}
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
@@ -275,38 +276,38 @@ export default function AiPlannerAndChat() {
             {!estimateResult ? (
               <form onSubmit={handleGenerateEstimate} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs text-slate-400 font-semibold uppercase block mb-1">Type de Solution</label>
+                  <label className="text-xs text-slate-400 font-semibold uppercase block mb-1">Type de Travaux</label>
                   <select
                     value={projectType}
                     onChange={(e) => setProjectType(e.target.value)}
                     className="w-full bg-slate-950 text-xs px-3.5 py-2.5 rounded-xl border border-slate-800 focus:outline-none focus:border-indigo-500 text-slate-100"
                   >
-                    <option value="SaaS / Web App">SaaS / Web App Interactive</option>
-                    <option value="Portail Client / Espace Collaboratif">Portail Collaboratif / Extranet</option>
-                    <option value="CRM Sur Mesure">CRM & Outils internes métiers</option>
-                    <option value="Site Vitrine / Catalogue">Site Vitrine / Promotion</option>
+                    <option value="Rénovation de Salle de Bain">Rénovation de Salle de Bain</option>
+                    <option value="Remplacement de Chauffe-Eau">Remplacement de Chauffe-Eau</option>
+                    <option value="Installation de Chauffage / Chaudière">Installation de Chauffage / Chaudière</option>
+                    <option value="Remise à neuf de la Plomberie (Logement complet)">Remise à neuf de la Plomberie</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="text-xs text-slate-400 font-semibold uppercase block mb-1">Budget Souhaité</label>
+                  <label className="text-xs text-slate-400 font-semibold uppercase block mb-1">Budget Estimé</label>
                   <select
                     value={budget}
                     onChange={(e) => setBudget(e.target.value)}
                     className="w-full bg-slate-950 text-xs px-3.5 py-2.5 rounded-xl border border-slate-800 focus:outline-none focus:border-indigo-500 text-slate-100"
                   >
-                    <option value="Compact (1 500€ - 3 000€)">Compact (1 500€ - 3 000€)</option>
-                    <option value="Standard (3 000€ - 8 000€)">Standard (3 000€ - 8 000€)</option>
-                    <option value="Premium (8 000€ - 20 000€)">Premium (8 000€ - 20 000€)</option>
+                    <option value="Économique (Moins de 1 000€)">Économique (Moins de 1 000€)</option>
+                    <option value="Standard (1 000€ - 3 000€)">Standard (1 000€ - 3 000€)</option>
+                    <option value="Premium (Plus de 3 000€)">Premium (Plus de 3 000€)</option>
                   </select>
                 </div>
 
                 <div className="md:col-span-2">
                   <label className="text-xs text-slate-400 font-semibold uppercase block mb-1">
-                    Description du Projet
+                    Description du Projet / Besoin
                   </label>
                   <textarea
-                    placeholder="Décrivez votre besoin métier (ex: Un portail de souscription pour nos clients, connecté à notre base commerciale actuelle, avec notifications automatiques...)"
+                    placeholder="Décrivez votre projet de plomberie (ex: Rénovation d'une salle de bain de 6m2 avec douche à l'italienne, dépose de l'ancienne baignoire, pose de carrelage...)"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     className="w-full bg-slate-950 text-xs px-3.5 py-2.5 rounded-xl border border-slate-800 focus:outline-none focus:border-indigo-500 text-slate-100 h-24 resize-none"
@@ -316,11 +317,11 @@ export default function AiPlannerAndChat() {
 
                 <div className="md:col-span-2">
                   <label className="text-xs text-slate-400 font-semibold uppercase block mb-1">
-                    Fonctionnalités Clés Désirées
+                    Options & Équipements Souhaités
                   </label>
                   <input
                     type="text"
-                    placeholder="Ex: Authentification sécurisée, export PDF de devis, tableau de bord Power BI, chat IA"
+                    placeholder="Ex: Douche à l'italienne, robinetterie Grohe, WC suspendus, chauffe-eau extra-plat..."
                     value={features}
                     onChange={(e) => setFeatures(e.target.value)}
                     className="w-full bg-slate-950 text-xs px-3.5 py-2.5 rounded-xl border border-slate-800 focus:outline-none focus:border-indigo-500 text-slate-100"
@@ -328,15 +329,15 @@ export default function AiPlannerAndChat() {
                 </div>
 
                 <div>
-                  <label className="text-xs text-slate-400 font-semibold uppercase block mb-1">Délai Ciblé</label>
+                  <label className="text-xs text-slate-400 font-semibold uppercase block mb-1">Délai Souhaité</label>
                   <select
                     value={timeline}
                     onChange={(e) => setTimeline(e.target.value)}
                     className="w-full bg-slate-950 text-xs px-3.5 py-2.5 rounded-xl border border-slate-800 focus:outline-none focus:border-indigo-500 text-slate-100"
                   >
-                    <option value="Moins de 1 mois (Express)">Moins de 1 mois (Express)</option>
-                    <option value="1 à 2 mois (Standard)">1 à 2 mois (Standard)</option>
-                    <option value="3 mois ou plus">3 mois ou plus</option>
+                    <option value="Moins de 1 semaine (Urgent)">Moins de 1 semaine (Urgent)</option>
+                    <option value="1 à 2 semaines (Standard)">1 à 2 semaines (Standard)</option>
+                    <option value="1 mois ou plus">1 mois ou plus</option>
                   </select>
                 </div>
 
@@ -349,7 +350,7 @@ export default function AiPlannerAndChat() {
                     {isEstimating ? (
                       <>
                         <RefreshCw className="w-4 h-4 animate-spin" />
-                        <span>Planification IA en cours...</span>
+                        <span>Estimation IA en cours...</span>
                       </>
                     ) : (
                       <>

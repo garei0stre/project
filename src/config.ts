@@ -1,31 +1,31 @@
 export const clientConfig = {
   // General Information
-  companyName: "Sotherm",
-  plumberName: "Sotherm",
-  phone: "06 89 74 05 63",
-  phoneRaw: "0689740563", // No spaces, for href="tel:..."
-  email: "contact@sotherm.fr",
-  address: "3 Rue de Kerdréan, 38430 Moirans",
+  companyName: "EXILEN",
+  plumberName: "EXILEN",
+  phone: "04 76 05 34 94",
+  phoneRaw: "0476053494", // No spaces, for href="tel:..."
+  email: "contact@exilen.fr",
+  address: "735 Rue René Rambaud Zone Artisanale, Le Parvis 2, 38500 Voiron",
 
   // Location & Coverage Area
-  mainCity: "Moirans",
+  mainCity: "Voiron",
   departmentName: "Isère (38)",
   departmentCode: "38",
-  areaCovered: "Moirans (38) et l'ensemble de l'Isère",
-  shortAreaCovered: "Moirans, Grenoble et environs (38)",
-  detailedAreaText: "Déplacement rapide sur Moirans et ses environs.",
+  areaCovered: "Voiron (38) et l'ensemble de l'Isère",
+  shortAreaCovered: "Voiron, Grenoble et environs (38)",
+  detailedAreaText: "Déplacement rapide sur Voiron et ses environs.",
 
   // Opening Hours
-  hoursWeek: "07h00 - 19h00",
+  hoursWeek: "8h00 - 12h00 • 14h00 - 18h00",
   hoursSaturday: "Fermé",
   hoursEmergency: "Lundi au Vendredi",
 
   // Custom Descriptions / Copywriting
-  badgeText: "Chauffage & Plomberie - Moirans (38)",
-  heroTitle: "Votre Expert Chauffage & Plomberie à Moirans et Environs",
-  heroDescription: "Sotherm intervient rapidement à Moirans et en Isère pour toutes vos installations de chauffage, plomberie et dépannages.",
+  badgeText: "Chauffage & Plomberie - Voiron (38)",
+  heroTitle: "Votre Expert Chauffage & Plomberie à Voiron et Environs",
+  heroDescription: "EXILEN intervient rapidement à Voiron et en Isère pour toutes vos installations de chauffage, plomberie et dépannages.",
   
-  aboutDescription: "Sotherm, situé à Moirans (38), est votre partenaire de confiance spécialisé dans les installations thermiques, la plomberie, le chauffage et les énergies.",
+  aboutDescription: "EXILEN (anciennement ODDOS ENERGIE), situé à Voiron (38), est votre partenaire de confiance spécialisé dans les installations thermiques, la plomberie, le chauffage et les énergies.",
 
   // Assets (Custom Logo & Photos)
   logo: "/logo.png",

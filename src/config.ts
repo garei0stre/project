@@ -1,11 +1,11 @@
 export const clientConfig = {
   // General Information
-  companyName: "Spid 38",
-  plumberName: "Spid 38",
-  phone: "04 76 35 98 08",
-  phoneRaw: "0476359808", // No spaces, for href="tel:..."
-  email: "contact@spid38.fr",
-  address: "29 Chem. du Salamot, 38210 Tullins",
+  companyName: "Alpes Energies",
+  plumberName: "Alpes Energies",
+  phone: "04 76 55 97 82",
+  phoneRaw: "0476559782", // No spaces, for href="tel:..."
+  email: "contact@alpesenergies.fr",
+  address: "750 Av. du Peuras, 38210 Tullins",
 
   // Location & Coverage Area
   mainCity: "Tullins",
@@ -23,9 +23,9 @@ export const clientConfig = {
   // Custom Descriptions / Copywriting
   badgeText: "Chauffage & Plomberie - Tullins (38)",
   heroTitle: "Votre Expert Chauffage & Plomberie à Tullins et Environs",
-  heroDescription: "Spid 38 intervient rapidement à Tullins et en Isère pour toutes vos installations de chauffage, plomberie et dépannages.",
+  heroDescription: "Alpes Energies intervient rapidement à Tullins et en Isère pour toutes vos installations de chauffage, plomberie et dépannages.",
   
-  aboutDescription: "Spid 38, situé à Tullins (38), est votre partenaire de confiance spécialisé dans les installations thermiques, la plomberie, le chauffage et les énergies.",
+  aboutDescription: "Alpes Energies, situé à Tullins (38), est votre partenaire de confiance spécialisé dans les installations thermiques, la plomberie, le chauffage et les énergies.",
 
   // Assets (Custom Logo & Photos)
   logo: "/logo.jpg",

@@ -1,34 +1,34 @@
 export const clientConfig = {
   // General Information
-  companyName: "Spid 38",
-  plumberName: "Spid 38",
-  phone: "04 76 35 98 08",
-  phoneRaw: "0476359808", // No spaces, for href="tel:..."
-  email: "contact@spid38.fr",
-  address: "29 Chem. du Salamot, 38210 Tullins",
+  companyName: "Sotherm",
+  plumberName: "Sotherm",
+  phone: "06 89 74 05 63",
+  phoneRaw: "0689740563", // No spaces, for href="tel:..."
+  email: "contact@sotherm.fr",
+  address: "3 Rue de Kerdréan, 38430 Moirans",
 
   // Location & Coverage Area
-  mainCity: "Tullins",
+  mainCity: "Moirans",
   departmentName: "Isère (38)",
   departmentCode: "38",
-  areaCovered: "Tullins (38) et l'ensemble de l'Isère",
-  shortAreaCovered: "Tullins, Grenoble et environs (38)",
-  detailedAreaText: "Déplacement rapide sur Tullins et ses environs.",
+  areaCovered: "Moirans (38) et l'ensemble de l'Isère",
+  shortAreaCovered: "Moirans, Grenoble et environs (38)",
+  detailedAreaText: "Déplacement rapide sur Moirans et ses environs.",
 
   // Opening Hours
-  hoursWeek: "9h00 - 12h00 • 13h00 - 18h00",
+  hoursWeek: "07h00 - 19h00",
   hoursSaturday: "Fermé",
   hoursEmergency: "Lundi au Vendredi",
 
   // Custom Descriptions / Copywriting
-  badgeText: "Chauffage & Plomberie - Tullins (38)",
-  heroTitle: "Votre Expert Chauffage & Plomberie à Tullins et Environs",
-  heroDescription: "Spid 38 intervient rapidement à Tullins et en Isère pour toutes vos installations de chauffage, plomberie et dépannages.",
-
-  aboutDescription: "Spid 38, situé à Tullins (38), est votre partenaire de confiance spécialisé dans les installations thermiques, la plomberie, le chauffage et les énergies.",
+  badgeText: "Chauffage & Plomberie - Moirans (38)",
+  heroTitle: "Votre Expert Chauffage & Plomberie à Moirans et Environs",
+  heroDescription: "Sotherm intervient rapidement à Moirans et en Isère pour toutes vos installations de chauffage, plomberie et dépannages.",
+  
+  aboutDescription: "Sotherm, situé à Moirans (38), est votre partenaire de confiance spécialisé dans les installations thermiques, la plomberie, le chauffage et les énergies.",
 
   // Assets (Custom Logo & Photos)
-  logo: "/logo.jpg",
+  logo: "/logo.png",
   photos: [
     "/photo1.jpg",
     "/photo2.jpg",

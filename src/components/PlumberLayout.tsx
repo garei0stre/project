@@ -36,29 +36,20 @@ export default function PlumberLayout() {
       {/* Main Navigation */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-32">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3" onClick={closeMenu}>
+            <Link to="/" className="flex items-center" onClick={closeMenu}>
               {clientConfig.logo ? (
-                <img src={clientConfig.logo} alt={clientConfig.companyName} className="w-12 h-12 rounded-lg object-contain bg-white border border-gray-200 shrink-0" />
+                <img
+                  src={clientConfig.logo}
+                  alt={clientConfig.companyName}
+                  className="h-32 w-auto object-contain shrink-0"
+                />
               ) : (
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white shrink-0">
                   <Wrench className="w-7 h-7" />
                 </div>
               )}
-              <div>
-                <h1 className="font-extrabold text-xl sm:text-2xl text-gray-900 leading-tight">
-                  {clientConfig.companyName.endsWith(clientConfig.departmentCode) ? (
-                    <>
-                      {clientConfig.companyName.slice(0, -clientConfig.departmentCode.length)}
-                      <span className="text-blue-600">{clientConfig.departmentCode}</span>
-                    </>
-                  ) : (
-                    clientConfig.companyName
-                  )}
-                </h1>
-                <p className="text-xs text-gray-500 font-medium">{clientConfig.plumberName} • Artisan Plombier</p>
-              </div>
             </Link>
 
             {/* Desktop Nav */}
@@ -67,31 +58,34 @@ export default function PlumberLayout() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-sm font-bold transition-colors ${
-                    location.pathname === link.path
-                      ? 'text-blue-600'
-                      : 'text-gray-600 hover:text-blue-600'
-                  }`}
+                  className={`text-sm font-bold transition-colors ${location.pathname === link.path
+                    ? 'text-blue-600'
+                    : 'text-gray-600 hover:text-blue-600'
+                    }`}
                 >
                   {link.name}
                 </Link>
               ))}
+            </nav>
+
+            {/* Right actions (CTA / Mobile Menu) */}
+            <div className="flex items-center space-x-4">
               <Link
                 to="/contact"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all shadow-md hover:shadow-lg flex items-center space-x-2"
+                className="hidden md:flex bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all shadow-md hover:shadow-lg items-center space-x-2 shrink-0"
               >
                 <span>Demander un devis</span>
                 <ChevronRight className="w-4 h-4" />
               </Link>
-            </nav>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-blue-50"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+              {/* Mobile Menu Button */}
+              <button
+                className="md:hidden p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-blue-50"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -104,11 +98,10 @@ export default function PlumberLayout() {
                   key={link.path}
                   to={link.path}
                   onClick={closeMenu}
-                  className={`block px-3 py-4 text-base font-bold rounded-md ${
-                    location.pathname === link.path
-                      ? 'bg-blue-50 text-blue-600'
-                      : 'text-gray-700 hover:bg-gray-50'
-                  }`}
+                  className={`block px-3 py-4 text-base font-bold rounded-md ${location.pathname === link.path
+                    ? 'bg-blue-50 text-blue-600'
+                    : 'text-gray-700 hover:bg-gray-50'
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -131,7 +124,11 @@ export default function PlumberLayout() {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 {clientConfig.logo ? (
-                  <img src={clientConfig.logo} alt={clientConfig.companyName} className="w-10 h-10 rounded-lg object-contain bg-white border border-gray-800 shrink-0" />
+                  <img
+                    src={clientConfig.logo}
+                    alt={clientConfig.companyName}
+                    className="max-h-14 w-auto max-w-[180px] object-contain shrink-0"
+                  />
                 ) : (
                   <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white shrink-0">
                     <Wrench className="w-6 h-6" />
@@ -201,7 +198,7 @@ export default function PlumberLayout() {
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
             <p>© {new Date().getFullYear()} {clientConfig.companyName} - {clientConfig.plumberName}. Tous droits réservés.</p>
             <div className="mt-4 md:mt-0 space-x-4">
